@@ -9,6 +9,24 @@ public class CheckAnagram {
         String strOne="silent";
         String strTwo="listen";
 
+        String collect = Arrays.stream(strOne.split(""))
+                .sorted()
+                .collect(Collectors.joining());
+
+        String collect1 = Arrays.stream(strTwo.split(""))
+                .sorted()
+                .collect(Collectors.joining());
+
+        System.out.println(collect+"  "+collect1);
+
+        if(collect.equalsIgnoreCase(collect1))
+            System.out.println("Anagram");
+        else
+            System.out.println("Not Anagram");
+
+
+//  ----------------------------------------------------------------------------------------------------
+
         String string1 = strOne.chars()
                 .sorted()
                 .mapToObj(c -> (char) c)

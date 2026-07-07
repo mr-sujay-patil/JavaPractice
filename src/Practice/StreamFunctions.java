@@ -20,7 +20,7 @@ public class StreamFunctions {
         Car verna=new Car("hyundai", "verna",2019);
         Car creta=new Car("hyundai", "creta",2019);
 
-        List<Car> carsList = List.of(glanza,fortuner,endeavour,verna,creta);
+        List<Car> carList = List.of(glanza, fortuner, endeavour, verna, creta);
 
         String ay = Arrays.stream(stringArray).filter(c -> c.contains("ay")).findFirst().get();
         System.out.println(ay);
