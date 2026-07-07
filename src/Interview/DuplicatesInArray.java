@@ -1,6 +1,5 @@
 package Interview;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -10,11 +9,32 @@ public class DuplicatesInArray {
     public static void main(String[] args) {
         List<String> stringList = List.of("virat", "om", "axar", "shreyas", "shubman", "jadeja","virat","rohit","axar","om");
 
-        List<String> res=stringList.stream()
+        List<Map.Entry<String, Long>> listOfDuplicates = stringList.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(str -> str.getValue() > 1)
+                .toList();
+
+        System.out.println(listOfDuplicates);
+
+        //keep single occuring
+        List<String> singleOccurings = stringList.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(st -> st.getValue() == 1)
+                .map(st -> st.getKey())
+                .toList();
+
+        System.out.println(singleOccurings);
+
+        //Distinct items
+                List<String> distinct =stringList.stream()
                 .distinct()
                 .toList();
-        System.out.println(res);
 
+        System.out.println(distinct);
 
     }
 }

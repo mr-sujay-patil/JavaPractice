@@ -20,15 +20,15 @@ public class DuplicateCharsInString {
 
         System.out.println(firstDuplicateChar);
 
-        //remove Duplicates
-        Set<Character> collect = str.chars()
+        //Distinct chars
+        Set<Character> distinct = str.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.toSet());
-        System.out.println(collect);
+        System.out.println(distinct);
 
-        Set<String> collect1 = Arrays.stream(str.split(""))
+        Set<String> distinct1 = Arrays.stream(str.split(""))
                 .collect(Collectors.toSet());
-        System.out.println(collect1);
+        System.out.println(distinct1);
 
     }
 }
